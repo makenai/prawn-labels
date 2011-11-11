@@ -56,3 +56,13 @@ Avery6572:
   rows: 15
   column_gutter: 22
   row_gutter: 0
+SHELF:
+  paper_size: LETTER
+  top_margin: 0
+  bottom_margin: 79
+  left_margin: 34
+  right_margin: 0
+  columns: 1
+  rows: 6
+  column_gutter: 0
+  row_gutter: 0

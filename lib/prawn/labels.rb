@@ -11,9 +11,9 @@ module Prawn
   class Labels
     attr_reader :document, :type
 
-    def self.generate(file_name, data, options = {}, &block)
+    def self.generate(data, options = {}, &block)
       labels = Labels.new(data, options, &block)
-      labels.document.render_file(file_name)
+      return labels.document
     end
 
     def self.render(data, options = {}, &block)
@@ -44,8 +44,8 @@ module Prawn
       generate_grid @type
 
       data.each_with_index do |record, index|
-        create_label(index, record, options) do |pdf, record|
-          yield pdf, record
+        create_label(index, record, options) do |pdf, record, info|
+          yield pdf, record, info
         end
       end
 
@@ -82,13 +82,13 @@ module Prawn
         @document.rotate(270, :origin => b.top_left) do
           @document.translate(0, b.width) do
             @document.bounding_box b.top_left, :width => b.height, :height => b.width do
-              yield @document, record
+              yield @document, record, { origin: b.top_left, width: b.width, height: b.height }
             end
           end
         end
       else
         @document.bounding_box b.top_left, :width => b.width, :height => b.height do
-          yield @document, record
+          yield @document, record, { origin: b.top_left, width: b.width, height: b.height }
         end
       end
 

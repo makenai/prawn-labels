@@ -48,11 +48,11 @@ Avery6572:
     row_gutter: 0
 3M3100P:
   paper_size: LETTER
-  top_margin: 39.6850394
-  bottom_margin: 39.6850394
-  left_margin: 14.1732283
-  right_margin: 14.1732283
+  top_margin: 42
+  bottom_margin: 39
+  left_margin: 14.5
+  right_margin: 14.5
   columns: 4
   rows: 15
-  column_gutter: 22.6771654
+  column_gutter: 22
   row_gutter: 0
